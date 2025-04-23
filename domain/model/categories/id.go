@@ -19,21 +19,25 @@ func (c *CategoryId) Value() string {
 
 // Equatableインターフェイスの実装
 func (c *CategoryId) Equals(other model.Equatable) bool {
-
+	// 型アサーション
+	// otherがCategoryId型かどうかを確認
 	otherCategoryId, ok := other.(*CategoryId)
 	if !ok {
 		return false
 	}
+	// 値の比較
 	return c.value == otherCategoryId.value
 }
 
 // 新しいUUIDを生成し、その値を持つCategoryIdを返す
+// 新しいCategoryId（商品カテゴリId）を生成するメソッド
 func NewCategoryIdWithUUID() *CategoryId {
 	categoryId := CategoryId{value: uuid.NewString()}
 	return &categoryId
 }
 
 // コンストラクタ
+// 既に存在しているUUIDを指定して、CategoryIdを生成するメソッド
 func NewCategoryId(value string) (*CategoryId, error) {
 	if value == "" {
 		return nil, errortype.NewDomainError("商品カテゴリIdは、空文字列であってはなりません。")
