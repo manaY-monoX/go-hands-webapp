@@ -8,8 +8,32 @@
 
 ## 技術スタック
 
-- Go
-- その他の依存関係は `go.mod` ファイルを参照してください
+### 基本環境
+- Go 1.23.2
+
+### 主要な依存関係
+#### Webフレームワーク
+- `gin-gonic/gin` - 高性能なWebフレームワーク
+- `gin-contrib/cors` - CORSミドルウェア
+
+#### データベース
+- `gorm.io/gorm` - Go用ORMライブラリ
+- `gorm.io/driver/mysql` - MySQL用GORMドライバー
+
+#### 依存性注入
+- `go.uber.org/fx` - 依存性注入フレームワーク
+- `go.uber.org/dig` - 依存性注入コンテナ
+
+#### ロギング
+- `go.uber.org/zap` - 高性能な構造化ロギング
+
+#### API ドキュメント
+- `swaggo/swag` - Swagger/OpenAPI ドキュメント生成
+- `swaggo/gin-swagger` - Gin用Swaggerインテグレーション
+
+#### ユーティリティ
+- `google/uuid` - UUID生成
+- `go-playground/validator` - 構造体バリデーション
 
 ## プロジェクト構造
 
@@ -26,8 +50,8 @@
 
 1. リポジトリのクローン:
 ```bash
-git clone [リポジトリURL]
-cd goweb-uitest-exercise
+git clone [https://github.com/manaY-monoX/go-hands-webapp]
+cd go-hands-webapp
 ```
 
 2. 依存関係のインストール:
