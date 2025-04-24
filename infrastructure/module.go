@@ -32,6 +32,7 @@ var InfrastructureModule = fx.Options(
 		repimpl.NewcategoryAdapterImpl,
 		repimpl.NewproductAdapterImpl,
 		repimpl.NewcategtoryRepositoryImpl,
+		// repimpl.NewcategoryRepositoryImpl2,
 		repimpl.NewproductRepositoryImpl,
 	),
 	fx.Invoke(setupEnd), // 依存関係構築完了メッセージを出力する
