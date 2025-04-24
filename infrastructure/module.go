@@ -28,6 +28,7 @@ var InfrastructureModule = fx.Options(
 	DBModule, // データベース接続の*gorm.DBをfxに保持する
 	fx.Provide(
 		// AdapterとRepositoryを生成して登録する
+		// fxがコンストラクタを呼び出す
 		repimpl.NewcategoryAdapterImpl,
 		repimpl.NewproductAdapterImpl,
 		repimpl.NewcategtoryRepositoryImpl,
