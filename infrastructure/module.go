@@ -3,6 +3,7 @@ package infrastructure
 import (
 	"log"
 	"service-exercise/infrastructure/gorm/config"
+	"service-exercise/infrastructure/gorm/repimpl"
 
 	"go.uber.org/fx"
 	"gorm.io/gorm"
@@ -25,7 +26,13 @@ var DBModule = fx.Provide(func() (*gorm.DB, error) {
 // インフラストラクチャ層の依存関係を構築する
 var InfrastructureModule = fx.Options(
 	DBModule, // データベース接続の*gorm.DBをfxに保持する
-	fx.Provide(),
+	fx.Provide(
+		// AdapterとRepositoryを生成して登録する
+		repimpl.NewcategoryAdapterImpl,
+		repimpl.NewproductAdapterImpl,
+		repimpl.NewcategtoryRepositoryImpl,
+		repimpl.NewproductRepositoryImpl,
+	),
 	fx.Invoke(setupEnd), // 依存関係構築完了メッセージを出力する
 )
 
